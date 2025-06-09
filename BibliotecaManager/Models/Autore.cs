@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BibliotecaManager.Models
+﻿namespace BibliotecaManager.Models
 {
-    internal class Autore
+    public class Autore
     {
+        public Persona Persona { get; set; }
+
+        public string CasaEditrice { get; set; }
+
+        public string IndiceDiGradimento { get; set; }
     }
+
 }

@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BibliotecaManager.Models
+﻿namespace BibliotecaManager.Models
 {
-    internal class Libro
+    public class Libro
     {
+        public string ISBN { get; set; }
+        public string Titolo { get; set; }
+        public string CasaEditrice { get; set; }
+        public int AnnoPubblicazione { get; set; }
+        public string Genere { get; set; }
+        public int QuantitaMagazzino { get; set; }
+        public Autore Autore { get; set; }
     }
+
 }

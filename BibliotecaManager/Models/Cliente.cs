@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace BibliotecaManager.Models
 {
-    internal class Cliente
+    public class  Cliente 
     {
+        public Persona Persona { get; set; }
+
+        public string Mail { get; set; }
+        public string Telefono { get; set; }    
+        public bool Socio { get; set; }
+
     }
 }
