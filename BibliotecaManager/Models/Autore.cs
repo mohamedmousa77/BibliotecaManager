@@ -6,7 +6,7 @@
 
         public string CasaEditrice { get; set; }
 
-        public string IndiceDiGradimento { get; set; }
+        public int IndiceDiGradimento { get; set; }
     }
 
 }
