@@ -2,6 +2,7 @@
 using BibliotecaManager.Models;
 using Microsoft.VisualBasic;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BibliotecaManager.Forms
@@ -19,21 +20,38 @@ namespace BibliotecaManager.Forms
         private void AggiornaGrid()
         {
             dgvAutori.DataSource = null;
-            dgvAutori.DataSource = personaController.Autori;
+            dgvAutori.DataSource = personaController.Autori.Select(a => new Autore
+            {
+                ID = a.Persona.ID,
+                Nome = a.Persona.Nome,
+                Cognome = a.Persona.Cognome,
+                CasaEditrice = a.CasaEditrice,
+                IndiceDiGradimento = a.IndiceDiGradimento
+            }).ToList();
         }
 
         private void btnAggiungi_Click(object sender, EventArgs e)
         {
+            string nome = Prompt("Inserisci il nome:", "");
+            string cognome = Prompt("Inserisci il cognome:", "");
+            string casaEditrice = Prompt("Inserisci la casa editrice:", "");
+            string gradimentoStr = Prompt("Inserisci l'indice di gradimento (1-5):", "3");
+
+            if (!int.TryParse(gradimentoStr, out int gradimento) || gradimento < 1 || gradimento > 5)
+            {
+                MessageBox.Show("Indice di gradimento non valido. Inserisci un numero tra 1 e 5.");
+                return;
+            }
             var autore = new Autore
             {
                 Persona = new Persona
                 {
                     ID = Guid.NewGuid().ToString(),
-                    Nome = "Nuovo",
-                    Cognome = "Autore"
+                    Nome = nome,
+                    Cognome =cognome
                 },
-                IndiceDiGradimento = 3,
-                CasaEditrice = "Default"
+                CasaEditrice = casaEditrice,
+                IndiceDiGradimento = gradimento
             };
 
             personaController.AggingiAutore(autore);
