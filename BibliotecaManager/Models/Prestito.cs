@@ -11,6 +11,6 @@ namespace BibliotecaManager.Models
         public DateTime DataPrestito { get; set; }
         public DateTime DataScadenza { get; set; }
 
-        public DateTime DataDiConsegna { get; set; }
+        public DateTime? DataDiConsegna { get; set; }
     }
 }
