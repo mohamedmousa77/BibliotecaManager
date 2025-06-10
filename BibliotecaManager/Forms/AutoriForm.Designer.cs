@@ -92,6 +92,7 @@
             this.Controls.Add(this.dgvAutori);
             this.Name = "AutoriForm";
             this.Text = "AutoriForm";
+            this.Load += new System.EventHandler(this.AutoriForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAutori)).EndInit();
             this.ResumeLayout(false);
 
